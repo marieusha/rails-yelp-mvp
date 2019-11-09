@@ -1,2 +1,24 @@
-<h2><%= @restaurant.name %></h2>
-<p><%= @restaurant.address %></p>
+<div class="container">
+  <h2><%= @restaurant.name %></h2>
+  <p><strong>Located at</strong> <%= @restaurant.address %></p>
+  <p><strong>Category:</strong> <%= @restaurant.category %></p>
+  <br>
+  <h4>Reviews</h4>
+    <ul>
+      <% @restaurant.reviews.each do |review| %>
+      <li>
+        <strong>Review:</strong> <%= review.content %>
+        <strong>(Rating:</strong> <%= review.rating %>)
+      <% end %>
+      </li>
+    </ul>
+
+
+  <%= render 'reviews/form' %>
+
+  <div>
+    <%= link_to restaurants_path do %>
+      <i class="fas fa-undo-alt"></i> Back to list
+    <% end %>
+  </div>
+</div>

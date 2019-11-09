@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>New restaurant</h1>
+
+  <%= render 'form', restaurant: @restaurant %>
+
+  <%= link_to restaurants_path do %>
+    <i class="fas fa-undo-alt"></i> Back to list
+    <% end %>
+</div>

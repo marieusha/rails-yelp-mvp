@@ -1,6 +1,20 @@
-<% @restaurants.each do |restaurant| %>
-  <%= link_to restaurant.name, restaurant_path(restaurant) %>
-  <%= link_to "Delete", restaurant_path(restaurant),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-<% end %>
+
+<div class="container">
+  <h1>Restaurants</h1>
+
+  <ul>
+      <% @restaurants.each do |restaurant| %>
+      <li>
+        <%= link_to restaurant_path(restaurant) do %>
+          <i class="fas fa-utensils"></i>  <%= restaurant.name %>
+          <% end %>
+        <% end %>
+      </li>
+  </ul>
+
+
+  <%= link_to new_restaurant_path do %>
+    <i class="fas fa-plus"></i> Add restaurant
+  <% end %>
+</div>
+
